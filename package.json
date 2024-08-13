@@ -1,0 +1,12 @@
+{
+  "name": "calcularcorreios",
+  "version": "1.0.0",
+  "description": "Esse mini app ajuda a escolher a caixa ideal com base nas medidas do produto e nas caixas padrão disponibilizadas pelos correios\r ### alguns detalhes devem ser levados em consideração:\r - O app não leva em consideração se o produto é de um tipo que deve estar com um lado para cima sempre (como tvs e afins)\r - O app usa um conjunto de dados interno quepode mudar com o tempo, isso acontece para tornar o app utilizavel offline ou ter reuso com otras empresas que não sejam os correios",
+  "main": "lambdaIndex.mjs",
+  "type":"module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
