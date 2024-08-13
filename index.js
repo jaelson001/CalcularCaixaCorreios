@@ -4,7 +4,7 @@ document.querySelector("#calcular").addEventListener("click", (e) => {
 	e.preventDefault()
 
 	document.querySelector("#erro").innerText = "Error here!"
-	document.querySelector("#erro").display = "none"
+	document.querySelector("#erro").style.display = "none"
 
 	let altura = document.querySelector("#altura").value || 1
 	let largura = document.querySelector("#largura").value || 1
@@ -24,7 +24,9 @@ document.querySelector("#calcular").addEventListener("click", (e) => {
 		resultado = getCaixa(objeto)
 	}catch(e){
 		document.querySelector("#erro").innerText = e.message
-		document.querySelector("#erro").display = "block"
+		document.querySelector("#erro").style.display = "block"
+		view.innerHTML = '<img class="img-fluid" src="./placeholder.png">'
+		return
 	}
 	renderizar(resultado, view)
 })
@@ -34,12 +36,8 @@ function renderizar(caixa, view){
 	let div = document.createElement("div")
 	div.classList.add("caixa_escolhida")
 	let imagem = document.createElement("img")
-	//let texto = document.createElement("h3")
-	//texto.classList.add("h3", "text-primary", "w-100", "text-center")
-	//texto.innerText = caixaEscolhida.nome
 	imagem.classList.add("img-fluid")
 	imagem.src = caixaEscolhida.imagem
-	//div.appendChild(texto)
 	div.appendChild(imagem)
 
 	view.innerHTML = ""
@@ -55,9 +53,11 @@ function getCaixa(obj){
 	})
 	if(resultado.length == 0){
 		throw new Error("Nenhuma caixa tem tamanho compativel!")
+	}else{
+		return {
+			"status":"success",
+			"message":resultado[0]
+		}	
 	}
-	return {
-		"status":"success",
-		"message":resultado[0]
-	}
+	
 }
